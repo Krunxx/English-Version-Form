@@ -131,25 +131,25 @@ const App = () => {
               <p><b>ENGLISH VERSION:</b> This Client Satisfaction Measurement
                 (CSM) tracks the customer experience of government offices. Your feedback on
                 your recently concluded transaction will help this office provide a
-                better service. Personal information shared will be kept confidential and you
-                always have the option not to answer this form.</p>
+                better service. Personal information shared will be kept confidential</p>
             </div>
             {/* NAME */}
-            <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
-              <label className="font-bold">Name <span className="text-red-500">{attemptedSubmit && !formData.name ? "*" : ""}</span></label>
+            <div className="mt-4 p-4  bg-white p-6 rounded-lg shadow-md">
+              <label className="font-bold mb-96">Name <span className="text-red-500">{attemptedSubmit && !formData.name ? "*" : ""}</span></label>
               <input type="text" name="name" className="border rounded-md p-2 w-full text-lg" value={formData.name} onChange={handleChange} />
             </div>
 
             {/* Email */}
-            <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <div className="mt-4 p-4  bg-white p-6 rounded-lg shadow-md">
               <label className="font-bold">Email <span className="text-red-500">{attemptedSubmit && !formData.email ? "*" : ""}</span></label>
               <input type="email" name="email" className="border rounded-md p-2 w-full" value={formData.email} onChange={handleChange} />
             </div>
             {/* Client Type */}
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
+
               <div className="font-bold">Client Type <span className="text-red-500">{attemptedSubmit && !formData.clientType ? "*" : ""}</span></div>
               {["Citizen", "Business", "Government (Employee or another agency)"].map((type) => (
-                <div key={type} className="flex items-center">
+                <div key={type} className="flex items-center mt-4">
                   <input type="radio" name="clientType" value={type} checked={formData.clientType === type} onChange={handleChange} />
                   <label className="ml-2">{type}</label>
                 </div>
@@ -159,7 +159,7 @@ const App = () => {
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
               <div className="font-bold">I am a <span className="text-red-500">{attemptedSubmit && !formData.role ? "*" : ""}</span></div>
               {["Faculty", "Non-Teaching Staff", "Student", "Guardian/Parent of Student", "Alumna", "Others"].map((role) => (
-                <div key={role} className="flex items-center">
+                <div key={role} className="flex items-center  mt-4">
                   <input type="radio" name="role" value={role} checked={formData.role === role} onChange={handleChange} />
                   <label className="ml-2">{role}</label>
                 </div>
@@ -169,7 +169,7 @@ const App = () => {
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
               <div className="font-bold">Sex <span className="text-red-500">{attemptedSubmit && !formData.sex ? "*" : ""}</span></div>
               {["Male", "Female"].map((sex) => (
-                <div key={sex} className="flex items-center">
+                <div key={sex} className="flex items-center mt-4">
                   <input type="radio" name="sex" value={sex} checked={formData.sex === sex} onChange={handleChange} />
                   <label className="ml-2">{sex}</label>
                 </div>
@@ -177,12 +177,12 @@ const App = () => {
             </div>
             {/* Age */}
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
-              <label className="font-bold">Age <span className="text-red-500">{attemptedSubmit && !formData.age ? "*" : ""}</span></label>
-              <input type="number" name="age" className="border rounded-md p-2 w-full" value={formData.age} onChange={handleChange} />
+              <label className="font-bold ">Age <span className="text-red-500">{attemptedSubmit && !formData.age ? "*" : ""}</span></label>
+              <input type="number" name="age" className="border rounded-md p-2 w-full mt-4" value={formData.age} onChange={handleChange} />
             </div>
             {/* Region */}
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
-              <div className="font-bold">Region <span className="text-red-500">{attemptedSubmit && !formData.region ? "*" : ""}</span></div>
+              <div className="font-bold">Region <span className="text-red-500 ">{attemptedSubmit && !formData.region ? "*" : ""}</span></div>
               {[
                 "Region I – Ilocos Region",
                 "Region II – Cagayan Valley",
@@ -202,7 +202,7 @@ const App = () => {
                 "CAR – Cordillera Administrative Region",
                 "BARMM – Bangsamoro Autonomous Region in Muslim Mindanao",
               ].map((region) => (
-                <div key={region} className="flex items-center">
+                <div key={region} className="flex items-center mt-4">
                   <input type="radio" name="region" value={region} checked={formData.region === region} onChange={handleChange} />
                   <label className="ml-2">{region}</label>
                 </div>
@@ -210,8 +210,8 @@ const App = () => {
             </div>
             {/* Campus */}
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
-              <div className="font-bold">Campus <span className="text-red-500">{attemptedSubmit && !formData.campus ? "*" : ""}</span></div>
-              <select name="campus" className="border rounded-md p-2 w-full" value={formData.campus} onChange={handleChange}>
+              <div className="font-bold ">Campus <span className="text-red-500">{attemptedSubmit && !formData.campus ? "*" : ""}</span></div>
+              <select name="campus" className="border rounded-md p-2 w-full mt-4" value={formData.campus} onChange={handleChange}>
                 <option value="">Select a campus</option>
                 {[
                   "Main Campus",
@@ -236,12 +236,11 @@ const App = () => {
         )}
         {/* Section 2 */}
         {currentSection === 2 && (
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-center font-bold text-2xl text-yellow-500">Survey Section 2</h3>
+          <div className="bg-white p-6 mt-4 rounded-lg shadow-md">
             <div className="mt-4">
-              <label className="font-bold">Transacted Office <span className="text-red-500">{attemptedSubmit && !formData.transactedOffice ? "*" : ""}</span></label>
+              <label className="font-bold mt-4">Transacted Office <span className="text-red-500">{attemptedSubmit && !formData.transactedOffice ? "*" : ""}</span></label>
               {formData.campus === "Cagayan de Oro" && (
-                <select name="transactedOffice" className="border rounded-md p-2 w-full" value={formData.transactedOffice} onChange={handleChange}>
+                <select name="transactedOffice" className="border rounded-md p-2 w-full mt-4" value={formData.transactedOffice} onChange={handleChange}>
                   <option value="">Select an office</option>
                   <option value="Building and Grounds Maintenance Unit (MEWS)">Building and Grounds Maintenance Unit (MEWS)</option>
                   <option value="Civil and Sanitary Works Unit (CSWS)">Civil and Sanitary Works Unit (CSWS)</option>
@@ -257,11 +256,10 @@ const App = () => {
         )}
         {/* Section 3 */}
         {currentSection === 3 && (
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-center font-bold text-2xl text-yellow-500">Survey Section 3</h3>
+          <div className="bg-white p-6 mt-4 rounded-lg shadow-md">
             <div className="mt-4">
               <label className="font-bold">Please indicate service availed <span className="text-red-500">{attemptedSubmit && !formData.serviceAvailed ? "*" : ""}</span></label>
-              <input type="text" name="serviceAvailed" className="border rounded-md p-2 w-full" value={formData.serviceAvailed} onChange={handleChange} />
+              <input type="text" name="serviceAvailed" className="border rounded-md p-2 w-full mt-4" value={formData.serviceAvailed} onChange={handleChange} />
             </div>
             <div className="flex justify-between mt-6">
               <button type="button" onClick={handleBack} className="bg-gray-500 text-white px-4 py-2 rounded">Back</button>
@@ -273,7 +271,7 @@ const App = () => {
         {currentSection === 4 && (
           <div className="">
 
-            <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
+            <div className="mt-10 bg-white p-7 rounded-lg shadow-md">
               <strong>Citizen's Charter and Service Quality Dimensions</strong>
             </div>
             {/* Awareness */}
@@ -283,7 +281,7 @@ const App = () => {
                 "I know what a CC is but I did NOT see this office's CC.",
                 "I learned of the CC only when I saw this office's CC.",
                 "I do not know what a CC is and I did not see one in this office."].map((answer, index) => (
-                  <div key={index} className="flex items-center">
+                  <div key={index} className="flex items-center mt-4">
                     <input type="radio" name="ccAwareness" value={answer} checked={formData.ccAwareness === answer} onChange={handleChange} />
                     <label className="ml-2">{answer}</label>
                   </div>
@@ -293,7 +291,7 @@ const App = () => {
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
               <div className="font-bold">CC2. If aware of CC (answered 1-3 in CC1), would you say the office was...?</div>
               {["Easy to see", "Somewhat easy to see", "Difficult to see", "Not visible at all", "N/A"].map((answer, index) => (
-                <div key={index} className="flex items-center">
+                <div key={index} className="flex items-center mt-4">
                   <input type="radio" name="ccVisibility" value={answer} checked={formData.ccVisibility === answer} onChange={handleChange} />
                   <label className="ml-2">{answer}</label>
                 </div>
@@ -303,14 +301,14 @@ const App = () => {
             <div className="mt-4 bg-white p-6 rounded-lg shadow-md">
               <div className="font-bold">CC3. If aware of CC (answered 1-3 in CC1), how much did the CC help you in your transaction?</div>
               {["Helped very much", "Somewhat helped", "Did not help", "N/A"].map((answer, index) => (
-                <div key={index} className="flex items-center">
+                <div key={index} className="flex items-center mt-4">
                   <input type="radio" name="ccHelp" value={answer} checked={formData.ccHelp === answer} onChange={handleChange} />
                   <label className="ml-2">{answer}</label>
                 </div>
               ))}
             </div>
             {/* Service Quality Dimensions */}
-            <strong className="mt-4 block bg-white p-6 rounded-lg shadow-md">Service Quality Dimensions:</strong>
+            <strong className="mt-10 block bg-white p-7 rounded-lg shadow-md">Service Quality Dimensions:</strong>
             {[
               "I am satisfied with the service that I availed.",
               "I spent a reasonable amount of time on my transaction.",
@@ -325,7 +323,7 @@ const App = () => {
               <div key={index} className="mt-2  bg-white p-6 rounded-lg shadow-md">
                 <div className="font-bold">SQD{index}. {question} <span className="text-red-500">{attemptedSubmit && !formData[`SQD${index}`] ? "*" : ""}</span></div>
                 {["Strongly Agree", "Agree", "Neither agree or disagree", "Disagree", "Strongly Disagree", "N/A"].map((response) => (
-                  <div key={response} className="flex items-center">
+                  <div key={response} className="flex items-center mt-4">
                     <input type="radio" name={`SQD${index}`} value={response} checked={formData[`SQD${index}`] === response} onChange={handleChange} />
                     <label className="ml-2">{response}</label>
                   </div>
